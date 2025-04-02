@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdivinarDado">
+    <TextView
+        android:id="@+id/txtTituloDado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adivinar dado"
+        android:textSize="30sp"
+        android:layout_marginTop="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/txtVidas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtTituloDado"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="20sp"
+        android:text="Vidas: 3"
+        android:layout_marginStart="20dp"
+        />
+    <TextView
+        android:id="@+id/txtTiempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtVidas"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="20sp"
+        android:text="Tiempo: 30"
+        android:layout_marginStart="20dp"
+        />
+    <TextView
+        android:id="@+id/txtPuntos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtTiempo"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="20sp"
+        android:text="Puntos: 0"
+        android:layout_marginStart="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/imgDado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dado0"
+        android:contentDescription="@string/dado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtPuntos"
+
+
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:paddingHorizontal="100dp"
+        android:hint="@string/hintResultado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgDado"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtRespuesta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/btnEnter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Adivinar"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:paddingHorizontal="30dp"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
