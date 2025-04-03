@@ -1,6 +1,7 @@
 package com.example.taller1
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Button
@@ -15,6 +16,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class AdivinarDado : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -38,11 +40,11 @@ class AdivinarDado : AppCompatActivity() {
 
         }
         txtVidas.text= "Vidas: $vidas"
-
+        val mp = MediaPlayer.create(this, R.raw.dice)
         temporizador.start()
         btnEnter.setOnClickListener {
             try {
-
+                mp.start()
                 intentos+=1
                 if(generarDado()){
 
@@ -58,6 +60,7 @@ class AdivinarDado : AppCompatActivity() {
                 }
                 temporizador.cancel()
                 temporizador.start()
+
             }catch (e: Exception){
                 Toast.makeText(this, "Ingresa un numero valido", Toast.LENGTH_SHORT).show()
             }
@@ -92,10 +95,12 @@ class AdivinarDado : AppCompatActivity() {
                 recreate()
             }
             .setNegativeButton("Salir") { dialog, which ->
+
                 val intent =  Intent(this,MainActivity::class.java)
                 startActivity(intent)
             }
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
+
 }
